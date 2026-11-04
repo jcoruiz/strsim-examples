@@ -28,12 +28,12 @@ var systemA = []record{
 
 // Names from system B that we need to match to system A.
 var systemB = []string{
-	"Bob Johnson",        // Nickname
-	"Katherine O'Brian",  // Spelling variation + typo
-	"Steven Garcia",      // Anglicized + accent removed
-	"Micheal Smyth",      // Typo + phonetic equivalent
-	"Elizabeth Browne",    // Alternative spelling
-	"Sarah Williams",     // No match expected
+	"Bob Johnson",       // Nickname
+	"Katherine O'Brian", // Spelling variation + typo
+	"Steven Garcia",     // Anglicized + accent removed
+	"Micheal Smyth",     // Typo + phonetic equivalent
+	"Elizabeth Browne",  // Alternative spelling
+	"Sarah Williams",    // No match expected
 }
 
 func main() {

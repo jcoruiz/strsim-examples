@@ -31,7 +31,7 @@ func main() {
 	jw := &strsim.JaroWinklerMetric{
 		BoostThreshold: 0.7,
 		PrefixSize:     4,
-		ASCIIOnly:      true, // All ASCII names — use fast path.
+		ASCIIOnly:      true, // All ASCII names: use the fast path.
 	}
 	findDuplicates(contacts, 0.85, jw)
 
