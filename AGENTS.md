@@ -5,7 +5,7 @@ Runnable programs that use [strsim](https://github.com/jcoruiz/strsim) for real 
 ## Rules
 
 - Every example is gofmt-clean, passes `go vet` and runs against the strsim version pinned in `go.mod`. CI runs them all.
-- The outputs quoted in the README are copied from `go run` with that version. When strsim or an example changes, run it again and update the README.
+- The outputs quoted in the README are lines copied verbatim from `go run` with that version (excerpts, not edited). When strsim or an example changes, run it again and update the README.
 - Examples import only strsim and the standard library.
 
 ## Checks
