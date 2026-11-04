@@ -24,7 +24,7 @@ var contacts = []string{
 }
 
 func main() {
-	fmt.Println("=== Duplicate Detection ===\n")
+	fmt.Print("=== Duplicate Detection ===\n\n")
 
 	// Strategy 1: Edit distance similarity (catches typos).
 	fmt.Println("Strategy 1: Jaro-Winkler (typo detection)")

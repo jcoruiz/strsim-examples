@@ -37,7 +37,7 @@ var systemB = []string{
 }
 
 func main() {
-	fmt.Println("=== Cross-System Name Matching ===\n")
+	fmt.Print("=== Cross-System Name Matching ===\n\n")
 
 	systemANames := make([]string, len(systemA))
 	for i, r := range systemA {
@@ -58,7 +58,7 @@ func main() {
 	}
 
 	// Show the phonetic codes for interesting pairs.
-	fmt.Println("\n=== Phonetic Analysis ===\n")
+	fmt.Print("\n=== Phonetic Analysis ===\n\n")
 
 	pairs := [][2]string{
 		{"Smith", "Smyth"},

@@ -37,7 +37,7 @@ func main() {
 		ASCIIOnly:      true,
 	}
 
-	fmt.Println("=== Autocomplete Suggestions ===\n")
+	fmt.Print("=== Autocomplete Suggestions ===\n\n")
 
 	for _, input := range inputs {
 		top := strsim.FindTopN(input, dictionary, 5, jw)
