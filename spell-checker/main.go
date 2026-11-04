@@ -48,7 +48,7 @@ func main() {
 		"strucutre",  // transposition
 	}
 
-	fmt.Println("=== Spell Checker ===\n")
+	fmt.Print("=== Spell Checker ===\n\n")
 
 	// Use multiple distance metrics to compare suggestions.
 	metrics := []struct {
