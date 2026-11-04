@@ -38,14 +38,14 @@ var words = []string{
 
 func main() {
 	misspelled := []string{
-		"recieve",     // common: ie/ei swap
-		"definately",  // common: ite vs ately
-		"enviroment",  // missing letter
-		"langauge",    // transposition
-		"seperate",    // common: e vs a
-		"neccessary",  // double letter error
-		"reccomend",   // double letter error
-		"strucutre",   // transposition
+		"recieve",    // common: ie/ei swap
+		"definately", // common: ite vs ately
+		"enviroment", // missing letter
+		"langauge",   // transposition
+		"seperate",   // common: e vs a
+		"neccessary", // double letter error
+		"reccomend",  // double letter error
+		"strucutre",  // transposition
 	}
 
 	fmt.Println("=== Spell Checker ===\n")
