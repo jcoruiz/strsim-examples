@@ -1,10 +1,10 @@
 # strsim-examples
 
-Real-world examples demonstrating [strsim](https://github.com/jcoruiz/strsim) — comprehensive string similarity metrics for Go.
+Real-world examples of [strsim](https://github.com/jcoruiz/strsim), a string similarity library for Go. To try its algorithms on your own text without writing code, use the [playground](https://strsim.than.cl).
 
 ## Examples
 
-### [fuzzy-search](fuzzy-search/) — Product Catalog Search
+### [fuzzy-search](fuzzy-search/): product catalog search
 
 Find the best matches for a typo-ridden query using different metrics. Shows how Jaro-Winkler, Levenshtein, and Dice produce different ranking results.
 
@@ -22,7 +22,7 @@ Query: "wireles headphone"
 
 **Features shown:** `FindTopN`, `Metric` interface, metric comparison.
 
-### [dedup](dedup/) — Duplicate Detection
+### [dedup](dedup/): duplicate detection
 
 Detect duplicate contacts using three strategies: edit distance (catches typos), Soundex (catches phonetic equivalents), and Double Metaphone (handles linguistic variations).
 
@@ -38,7 +38,7 @@ Strategy 2: Soundex (phonetic matching)
 
 **Features shown:** `FindAboveThreshold`, `SoundexMatch`, `DoubleMetaphoneMatch`, `ASCIIOnly`.
 
-### [autocomplete](autocomplete/) — Autocomplete Suggestions
+### [autocomplete](autocomplete/): autocomplete suggestions
 
 Suggest completions for partial input against a dictionary of programming tools. Uses `ASCIIOnly` for maximum throughput on ASCII identifiers.
 
@@ -50,7 +50,7 @@ Suggest completions for partial input against a dictionary of programming tools.
 
 **Features shown:** `FindTopN`, `ASCIIOnly` fast path.
 
-### [spell-checker](spell-checker/) — Spell Correction
+### [spell-checker](spell-checker/): spell correction
 
 Compare how Levenshtein, OSA, and Damerau-Levenshtein handle different types of misspellings. OSA and Damerau-Levenshtein correctly detect transpositions as single edits.
 
@@ -62,9 +62,9 @@ Compare how Levenshtein, OSA, and Damerau-Levenshtein handle different types of 
                 OSA         → "language" (dist: 1)  ← transposition
 ```
 
-**Features shown:** `DistanceMetric` interface, `Distance()` + `Similarity()`, algorithm comparison.
+**Features shown:** `DistanceMetric` interface, `FindBestMatch` with an edit distance, `Distance()`, algorithm comparison.
 
-### [name-matcher](name-matcher/) — Cross-System Name Matching
+### [name-matcher](name-matcher/): name matching across systems
 
 Match person names across systems using a pipeline that combines Jaro-Winkler similarity with phonetic encoding for boosted scoring. Handles nicknames, spelling variations, and accented characters.
 
@@ -87,4 +87,4 @@ go run ./spell-checker/
 go run ./name-matcher/
 ```
 
-Requires Go 1.22+.
+Requires Go 1.22.2 or newer, the version in `go.mod`.
