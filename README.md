@@ -12,7 +12,7 @@ Find the best matches for a typo-ridden query using different metrics. Shows how
 Query: "wireles headphone"
 
 --- Jaro-Winkler ---
-  #1  0.7372  Wireless Bluetooth Headphones
+  #1  0.7476  Wireless Bluetooth Headphones
   #2  0.6933  Wireless Gaming Mouse
 
 --- Levenshtein ---
@@ -43,9 +43,9 @@ Strategy 2: Soundex (phonetic matching)
 Suggest completions for partial input against a dictionary of programming tools. Uses `ASCIIOnly` for maximum throughput on ASCII identifiers.
 
 ```
-  "go"       → go (1.00), gorm (0.87), golang (0.82)
-  "typscrip" → typescript (0.95), javascript (0.71)
-  "kuber"    → kubernetes (0.90), vue (0.69)
+  "go" → go (1.00), gorm (0.87), golang (0.82), gorilla (0.81), gin (0.61)
+  "typscrip" → typescript (0.95), javascript (0.71), pytorch (0.65), fastapi (0.61), postgres (0.58)
+  "kuber" → kubernetes (0.90), vue (0.69), flutter (0.68), ruby (0.63), docker (0.58)
 ```
 
 **Features shown:** `FindTopN`, `ASCIIOnly` fast path.
@@ -55,11 +55,15 @@ Suggest completions for partial input against a dictionary of programming tools.
 Compare how Levenshtein, OSA, and Damerau-Levenshtein handle different types of misspellings. OSA and Damerau-Levenshtein correctly detect transpositions as single edits.
 
 ```
-  "recieve":    Levenshtein → "believe" (dist: 2)
-                OSA         → "receive" (dist: 1)  ← correct!
+  "recieve":
+    Levenshtein  → "believe" (distance: 2, similarity: 0.71)
+    OSA          → "receive" (distance: 1, similarity: 0.86)
+    Damerau-Lev  → "receive" (distance: 1, similarity: 0.86)
 
-  "langauge":   Levenshtein → "language" (dist: 2)
-                OSA         → "language" (dist: 1)  ← transposition
+  "langauge":
+    Levenshtein  → "language" (distance: 2, similarity: 0.75)
+    OSA          → "language" (distance: 1, similarity: 0.88)
+    Damerau-Lev  → "language" (distance: 1, similarity: 0.88)
 ```
 
 **Features shown:** `DistanceMetric` interface, `FindBestMatch` with an edit distance, `Distance()`, algorithm comparison.
@@ -69,10 +73,10 @@ Compare how Levenshtein, OSA, and Damerau-Levenshtein handle different types of 
 Match person names across systems using a pipeline that combines Jaro-Winkler similarity with phonetic encoding for boosted scoring. Handles nicknames, spelling variations, and accented characters.
 
 ```
-  Bob Johnson       → Robert Johnson       (score: 0.87)
-  Katherine O'Brian → Catherine O'Brien    (score: 1.00)
-  Micheal Smyth     → Michael Smith        (score: 1.00)
-  Sarah Williams    → NO MATCH             (score: 0.54)
+  Bob Johnson               → Robert Johnson            (score: 0.87, email: rjohnson@corp.com)
+  Katherine O'Brian         → Catherine O'Brien         (score: 1.00, email: cobrien@corp.com)
+  Micheal Smyth             → Michael Smith             (score: 1.00, email: msmith@corp.com)
+  Sarah Williams            → NO MATCH (best: "Michael Smith", score: 0.54)
 ```
 
 **Features shown:** `FindBestMatch`, `SoundexMatch`, `MetaphoneMatch`, `DoubleMetaphoneMatch`, combining edit distance + phonetic in a scoring pipeline.
